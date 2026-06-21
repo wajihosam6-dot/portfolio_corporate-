@@ -10,6 +10,16 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
+  // Allow embedding in iframes and CORS from any origin
+  app.use((_req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Content-Security-Policy", "frame-ancestors *;");
+    res.removeHeader("X-Frame-Options");
+    next();
+  });
+
   const staticPath =
     process.env.NODE_ENV === "production"
       ? path.resolve(__dirname, "public")
