@@ -16,7 +16,6 @@ async function startServer() {
       : path.resolve(__dirname, "..", "dist", "public");
 
   app.use(express.static(staticPath));
-
   app.get("*", (_req, res) => {
     const indexPath = path.join(staticPath, "index.html");
     res.sendFile(indexPath, (err) => {
