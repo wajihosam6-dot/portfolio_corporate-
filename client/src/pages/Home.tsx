@@ -6,6 +6,13 @@ import CinematicButton from '@/components/CinematicButton';
 import ScrollReveal from '@/components/ScrollReveal';
 import GoldenDivider from '@/components/GoldenDivider';
 import ParallaxSection from '@/components/ParallaxSection';
+import PortfolioSection from '@/components/PortfolioSection';
+import ServicesSection from '@/components/ServicesSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import TimelineSection from '@/components/TimelineSection';
+import StatsCounterSection from '@/components/StatsCounterSection';
+import CTASection from '@/components/CTASection';
+import AdvancedScrollAnimations from '@/components/AdvancedScrollAnimations';
 
 declare global {
   interface Window {
@@ -147,7 +154,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Stat 1 */}
-            <div className="flex flex-col gap-2">
+            <div data-stat-number className="flex flex-col gap-2">
               <div className="flex items-baseline gap-2">
                 <span className="stat-number text-4xl font-light text-accent">20</span>
                 <span className="text-sm text-muted-foreground">+</span>
@@ -161,7 +168,7 @@ export default function Home() {
             </div>
 
             {/* Stat 2 */}
-            <div className="flex flex-col gap-2">
+            <div data-stat-number className="flex flex-col gap-2">
               <div className="flex items-baseline gap-2">
                 <span className="stat-number text-4xl font-light text-accent">100</span>
                 <span className="text-sm text-muted-foreground">+</span>
@@ -175,7 +182,7 @@ export default function Home() {
             </div>
 
             {/* Stat 3 */}
-            <div className="flex flex-col gap-2">
+            <div data-stat-number className="flex flex-col gap-2">
               <div className="flex items-baseline gap-2">
                 <span className="stat-number text-4xl font-light text-accent">50</span>
                 <span className="text-sm text-muted-foreground">+</span>
@@ -219,22 +226,22 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 border border-border hover:border-accent transition-colors duration-300">
+              <div data-service-card className="p-6 border border-border hover:border-accent transition-colors duration-300">
                 <Briefcase className="w-8 h-8 text-accent mb-4" />
                 <h3 className="font-semibold mb-2">Strategy</h3>
                 <p className="text-sm text-foreground/70">Business transformation and growth strategies</p>
               </div>
-              <div className="p-6 border border-border hover:border-accent transition-colors duration-300">
+              <div data-service-card className="p-6 border border-border hover:border-accent transition-colors duration-300">
                 <Users className="w-8 h-8 text-accent mb-4" />
                 <h3 className="font-semibold mb-2">Leadership</h3>
                 <p className="text-sm text-foreground/70">Executive coaching and organizational development</p>
               </div>
-              <div className="p-6 border border-border hover:border-accent transition-colors duration-300">
+              <div data-service-card className="p-6 border border-border hover:border-accent transition-colors duration-300">
                 <Lightbulb className="w-8 h-8 text-accent mb-4" />
                 <h3 className="font-semibold mb-2">Innovation</h3>
                 <p className="text-sm text-foreground/70">Digital transformation and market disruption</p>
               </div>
-              <div className="p-6 border border-border hover:border-accent transition-colors duration-300">
+              <div data-service-card className="p-6 border border-border hover:border-accent transition-colors duration-300">
                 <FileText className="w-8 h-8 text-accent mb-4" />
                 <h3 className="font-semibold mb-2">Insights</h3>
                 <p className="text-sm text-foreground/70">Research and thought leadership</p>
@@ -362,6 +369,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <PortfolioSection />
+
+      {/* Services Section */}
+      <ServicesSection />
+
+      {/* Stats Counter Section */}
+      <StatsCounterSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Timeline Section */}
+      <TimelineSection />
+
+      {/* CTA Section */}
+      <CTASection />
+
+      {/* Advanced Scroll Animations */}
+      <AdvancedScrollAnimations />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 border-t border-border">
