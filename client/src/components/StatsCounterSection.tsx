@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { BarChart3, CheckCircle2, Globe2, TrendingUp } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 interface Stat {
@@ -7,7 +8,7 @@ interface Stat {
   value: number;
   suffix: string;
   description: string;
-  icon: string;
+  icon: 'chart' | 'check' | 'globe' | 'trending';
 }
 
 const stats: Stat[] = [
@@ -17,7 +18,7 @@ const stats: Stat[] = [
     value: 20,
     suffix: '+',
     description: 'Across industries and markets',
-    icon: '📊',
+    icon: 'chart',
   },
   {
     id: 2,
@@ -25,7 +26,7 @@ const stats: Stat[] = [
     value: 150,
     suffix: '+',
     description: 'Successfully delivered transformations',
-    icon: '✓',
+    icon: 'check',
   },
   {
     id: 3,
@@ -33,7 +34,7 @@ const stats: Stat[] = [
     value: 75,
     suffix: '+',
     description: 'From startups to Fortune 500',
-    icon: '🌍',
+    icon: 'globe',
   },
   {
     id: 4,
@@ -41,7 +42,7 @@ const stats: Stat[] = [
     value: 500,
     suffix: 'M+',
     description: 'Generated for client organizations',
-    icon: '💰',
+    icon: 'trending',
   },
 ];
 
@@ -109,8 +110,11 @@ export default function StatsCounterSection() {
                 {/* Content */}
                 <div className="relative p-6 text-center">
                   {/* Icon */}
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
-                    {stat.icon}
+                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
+                    {stat.icon === 'chart' && <BarChart3 className="w-12 h-12 text-accent" />}
+                    {stat.icon === 'check' && <CheckCircle2 className="w-12 h-12 text-accent" />}
+                    {stat.icon === 'globe' && <Globe2 className="w-12 h-12 text-accent" />}
+                    {stat.icon === 'trending' && <TrendingUp className="w-12 h-12 text-accent" />}
                   </div>
 
                   {/* Counter */}
