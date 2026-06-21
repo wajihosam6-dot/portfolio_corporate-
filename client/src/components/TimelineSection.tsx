@@ -84,16 +84,19 @@ export default function TimelineSection() {
   }, []);
 
   return (
-    <section className="py-20 border-t border-border">
+    <section className="py-20 border-t border-border" data-parallax-depth="1">
       <div className="container">
         <ScrollReveal>
           <p className="section-number mb-4">10</p>
-          <h2 className="text-cinematic mb-12">Career Timeline</h2>
+          <h2 className="text-cinematic mb-12" data-hero-element>Career Timeline</h2>
         </ScrollReveal>
 
-        <div ref={timelineRef} className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent/50 to-transparent" />
+        <div ref={timelineRef} data-timeline-container className="relative">
+          {/* Animated Timeline Line */}
+          <div
+            data-timeline-line
+            className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent/50 to-transparent"
+          />
 
           {/* Timeline Items */}
           <div className="space-y-12">
@@ -106,21 +109,45 @@ export default function TimelineSection() {
                 <div className={`flex gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   {/* Content */}
                   <div className="flex-1">
-                    <div className={`p-6 border border-border hover:border-accent transition-all duration-300 ${
-                      index % 2 === 0 ? 'text-right' : 'text-left'
-                    }`}>
-                      <p className="label-uppercase text-xs text-accent mb-2">{event.year}</p>
-                      <h3 className="text-xl font-light mb-2 hover:text-accent transition-colors duration-300">
+                    <div
+                      className={`group p-6 border border-border hover:border-accent transition-all duration-300 hover:bg-accent/5 cursor-pointer ${
+                        index % 2 === 0 ? 'text-right' : 'text-left'
+                      }`}
+                    >
+                      {/* Year */}
+                      <p className="label-uppercase text-xs text-accent mb-2 group-hover:text-accent transition-colors duration-300">
+                        {event.year}
+                      </p>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-light mb-2 group-hover:text-accent transition-colors duration-300">
                         {event.title}
                       </h3>
-                      <p className="text-sm text-foreground/70 mb-3">{event.description}</p>
-                      <p className="text-xs text-muted-foreground italic">{event.milestone}</p>
+
+                      {/* Description */}
+                      <p className="text-sm text-foreground/70 mb-3 group-hover:text-foreground/80 transition-colors duration-300">
+                        {event.description}
+                      </p>
+
+                      {/* Milestone */}
+                      <p className="text-xs text-muted-foreground italic opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {event.milestone}
+                      </p>
+
+                      {/* Animated bottom border */}
+                      <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent to-transparent w-0 group-hover:w-full transition-all duration-500" />
                     </div>
                   </div>
 
-                  {/* Center Dot */}
+                  {/* Center Dot with animation */}
                   <div className="flex justify-center">
-                    <div className="w-4 h-4 bg-accent rounded-full border-4 border-background mt-6" />
+                    <div className="relative w-4 h-4 mt-6">
+                      {/* Outer glow */}
+                      <div className="absolute inset-0 bg-accent rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Inner dot */}
+                      <div className="absolute inset-1 bg-accent rounded-full border-4 border-background" />
+                    </div>
                   </div>
 
                   {/* Empty Space */}
@@ -136,6 +163,10 @@ export default function TimelineSection() {
         [data-timeline-item].animate-in {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        [data-timeline-item]:hover {
+          transform: scale(1.02);
         }
       `}</style>
     </section>

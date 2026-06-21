@@ -84,6 +84,7 @@ export default function Home() {
         id="home"
         ref={heroRef}
         className="relative min-h-screen pt-20 flex items-center overflow-hidden"
+        data-parallax-depth="3"
       >
         {/* Background Image */}
         <div
@@ -100,22 +101,22 @@ export default function Home() {
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
-            <div className="hero-element">
+            <div className="hero-element" data-hero-element>
               <p className="label-uppercase text-xs text-muted-foreground mb-4">
                 Driving Strategy. Delivering Impact.
               </p>
             </div>
 
-            <h1 className="hero-element text-cinematic">
+            <h1 className="hero-element text-cinematic" data-hero-element>
               Transforming Vision Into{' '}
               <span className="text-accent-gold">Value</span>
             </h1>
 
-            <p className="hero-element text-foreground/80 max-w-md leading-relaxed">
+            <p className="hero-element text-foreground/80 max-w-md leading-relaxed" data-hero-element>
               I partner with organizations and leaders to solve complex challenges, design future-ready strategies, and deliver measurable results.
             </p>
 
-            <div className="hero-element flex gap-4">
+            <div className="hero-element flex gap-4" data-hero-element>
               <CinematicButton variant="gold" className="text-sm flex items-center gap-2">
                 DISCOVER MORE
                 <ArrowRight className="w-4 h-4" />

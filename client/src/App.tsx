@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import LuxuryScrollEffects from "./components/LuxuryScrollEffects";
 import AnimationManager from "./components/AnimationManager";
 
 
@@ -33,7 +34,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <AnimationManager />
+          <LuxuryScrollEffects />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
